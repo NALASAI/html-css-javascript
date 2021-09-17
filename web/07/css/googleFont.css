@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500;600;700;800;900&display=swap');
+        body{
+            font-family: 'Hahmlet', serif;
+            font-size : 30px;
+            font-weight: 400;
+            color: rgb(30, 180, 250, 1);
+            text-align: center;
+        }
+
+        #naver_logo{
+            text-decoration: none;
+            color:#19ce60;
+            font-size: 30px;
+            font-weight: 900;
+            text-shadow: 0px 0px 20px black;
+        }
+
+        p {
+            line-height: 10px;
+            text-decoration: underline;
+            letter-spacing: 10px;
+            word-spacing: 100px;
+        }
+        ul{
+            list-style: none;
+        }
+
+        table{
+            border: 1px solid black;
+        }
+
+        table thead th{
+            border: 2px dotted red;
+        }
+
+        table tbody th{
+            border: 1px solid green;
+        }
+
+        th{
+            width: 100px;
+            height: 50px;
+        }
+
+        td{ 
+            border: 1px solid blue;
+        }
