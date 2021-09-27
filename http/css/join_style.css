@@ -37,8 +37,25 @@ header h1 a span {
     margin: 0px auto;
 }
 
+/*warning check*/
+/*==================================================*/
+
+.text_required{
+    display: none;
+    color: crimson;
+    font-size: 0.8em;
+}
+
+.idCheck_false{
+    display: none;
+    color: crimson;
+    font-size: 0.8em;
+}
+
+/*==================================================*/
+
 .join_row{
-    
+    margin: 10px 0px;
 }
 
 .join_row h3{

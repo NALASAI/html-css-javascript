@@ -1,13 +1,10 @@
 const idText = document.querySelector('#id');
 const passwordText = document.querySelector('#password');
-passwordText.addEventListener('focusout', checkPassword(idText.value, passwordText.value)) = () => {
-    let password_flag = checkPassword(idText.value, passwordText.value);
-    if(password_flag == true){
-        alert('비밀번호가 일치합니다');
-    }else{
-        alert('비밀번호가 틀립니다');
-    }
-}
+passwordText.onblur = () => {
+    checkPassword(idText.value, passwordText.value)
+    setTimeout(20);
+    passwordText.focus
+};
 
 function checkPassword(id, password) {
 

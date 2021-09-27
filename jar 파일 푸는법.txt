@@ -1,0 +1,41 @@
+D드라이브 김준일 강사 폴더 먼저 만들기
+
+1. 쉬프트 + 마우스 오른쪽 클릭해서 파워쉘을 연다
+2. java -jar sts4.jar를 입력
+3. 잠깐기다리면 끝
+
+설치후 할것
+1. Help 탭에 마켓플레이스
+2. Eclipse 검색
+3. Eclipse Enterprise 설치
+4. 재시작
+5. 마켓플레이스 재접속
+6. spring 검색
+7. spring tool3 설치
+
+톰캣
+톰캣 9
+
+9.0.53 windows service installer다운
+
+shutdown port = 8005
+http/1.1 connector port 8000
+
+Name = Tomcat9-junil
+
+User Name = Admin
+Password = toor
+
+설치 경로
+드라이브:\김준일강사\Tomcat9
+
+설치 확인 여부
+브라우저 localhost:8000입력 아파치 톰캣 정보나오면 성공
+
+서버
+Run On Server
+Tomcat 9server선택
+톰캣 설치 경로 찾아가기
+
+preferences 에서 console 검색
+80000에서 800000로 변경
