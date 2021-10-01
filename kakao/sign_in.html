@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카카오 로그인</title>
     <link rel = "stylesheet" href="css/style.css">
-    <link rel = "stylesheet" href="css/sing_in.css">
+    <link rel = "stylesheet" href="css/sign_in.css">
 </head>
 <body>
     <div class="container">
@@ -23,17 +23,19 @@
                     </div>
                     <div class="wrap_form">
                         <p>kakao</p>
-                        <input type="email" placeholder="카카오메일 아이디, 이메일, 전화번호"/><br>
-                        <input type="password" placeholder="비밀번호"/><br>
-                        <input type="checkbox">로그인 상태 유지<br>
+                        <input type="email" class="login" placeholder="카카오메일 아이디, 이메일, 전화번호"/><br>
+                        <input type="password" class="password" placeholder="비밀번호"/><br>
+                        <input type="checkbox">로그인 상태 유지
 
-                        <input type="button" value="로그인"/>
+                        <button class="button_yellow" type="button"><p>로그인</p></button>
                         <p>------------또는------------</p>
-                        <input type="button" value="QR코드 로그인"/>
+                        <button class="button_QR" type="button"><p>QR코드로 로그인</p></button>
 
-                        <a href="#" class="plus">회원가입</a>
-                        <a href="#" class="plus">카카오계정</a>
-                        <a href="#" class="plus">비밀번호찾기</a>
+                        <div class="bot_mn">
+                            <a href="#" class="plus">회원가입</a>
+                            <a href="#" class="account">카카오계정</a>
+                            <a href="#" class="passwordfind">비밀번호찾기</a>
+                        </div>
                     </div>
                 </div>
             </main>
@@ -45,7 +47,7 @@
             <a href="#" class="sub_mn_3">운영정책</a>
             <a href="#" class="sub_mn_4">고객센터</a>
             <a href="#" class="sub_mn_5">공지사항</a>
-            <div class="lan">
+            <!-- <div class="lan">
                 <a href="#" class="select">한국어
                     <span class="lan_select">선택옵션</span>
                 </a>
@@ -54,8 +56,11 @@
                     <li>English</li>
                     <li>日本語</li>
                 </ul>
-            </div>
+            </div> -->
         </div>
+        <p class="txt_copyright">
+            Copyright © Kakao Corp. All rights reserved.
+        </p>
     </footer>
 </div>
 </body>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 이메일</title>
+    <link rel = "stylesheet" href="css/style.css">
+    <link rel = "stylesheet" href="css/sign_up.css">
+</head>
+<body>
+    <div class="container">
+        <div class="inner">
+            <header class="doc_header">
+                <h1>KAKAO</h1>
+            </header>
+            <main class="doc_main">
+                <div class="content_main">
+                    <h2 class="content_txt">
+                        카카오계정 가입을 위해
+                        <br>
+                        휴대폰 인증을 해주세요
+                    </h2>
+                    <form>
+                        <div class="telephone_submit">
+                            <div class="select_tf">
+                                <div class="view_m">
+                                    <select id="select-iso_code" class="select_g" name="iso_code">                                    <option value="KR_82">+82</option>
+                                        <option value="CA_1">(+1) Canada</option>
+                                        <option value="US_1">(+1) United States</option>
+                                        <option value="JP_81">(+81) 日本 (Japan)</option>
+                                        <option value="PH_63">(+63) Philippines</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <input type="tel" name="phone_number" placeholder="전화번호 입력" id="phone-phonenumber" class="tf_g" value>
+                            <div class="util_btn">
+                                <button type="button" class="btn_round">인증요청</button>
+                            </div>
+                            <p class="txt_info">
+                                잘못된 형식의 전화번호 입니다. 정확한 전화번호를 입력해 주세요
+                            </p>
+                        </div>
+                        <div class="confirm_button">
+                            <button type="button" class="btn">
+                                다음
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </main>
+            <footer class="doc_footer">
+                <div class="service_info">
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보 처리방침</a>
+                    <a href="#">운영정책</a>
+                    <a href="#">고객센터</a>
+                    <a href="#">공지사항</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

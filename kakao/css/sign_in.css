@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 header{
     vertical-align: middle;
     padding: 59px 69px 49px 69px;
@@ -30,6 +35,46 @@ header .wrap_form{
     font-weight: 400;
 }
 
+.wrap_form .login{
+    width: 300px;
+    height: 50px;
+    border:none;
+    border-bottom: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.wrap_form .password{
+    margin-top: 5px;
+    width: 300px;
+    height: 50px;
+    border:none;
+    border-bottom: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.wrap_form .button_yellow{
+    width: 300px;
+    height: 60px;
+    background-color: yellow;
+}
+
+.wrap_form .button_yellow > p{
+    font-size: 15px;
+}
+
+.wrap_form .button_QR{
+    width: 300px;
+    height: 60px;
+}
+
+.wrap_form .bot_mn{
+    font-size: 12px;
+}
+
+.wrap_form .bot_mn > a{
+    text-decoration: none;
+}
+
 footer{
     margin: 5px 0px 0px;
     font-size: 0.8em;
@@ -42,6 +87,10 @@ footer .sub_mn{
     display: block;
     letter-spacing: -0.48px;
     text-align: center;
+}
+
+footer a{
+    text-decoration: none;
 }
 
 footer .sub_mn .sub_mn_1{
@@ -71,4 +120,9 @@ footer .sub_mn .sub_mn_5{
 }
 footer .sub_mn .lan{
     display:block;
+}
+
+footer .txt_copyright{
+    margin: 0 auto;
+    text-align: center;
 }
