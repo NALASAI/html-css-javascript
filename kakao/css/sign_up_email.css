@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body{
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: "맑은고딕";
+    color: #333;
+    background-color: #fff;
+}
+
+header > h1{ vertical-align: center;}
+
+input, button{
+    vertical-align: center;
+}
+
+.container{
+    display: table;
+    table-layout: fixed;
+    width: 580px;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.container .warp_form{
+    width: 580px;
+    height: 545px;
+    border: 1px solid #4c4c4c;
+    padding: 55px 69px 50px 69px;
+}
+
+.warp_form .navigation_wrap{
+    margin-bottom: 32px;
+}
+
+.warp_form .txt{
+    padding-bottom: 49px;
+}
+
+.warp_form .item_tf{
+    width: 100%;
+    position: relative;
+    line-height: 25px;
+    color: #191919;
+    padding-bottom: 3px;
+    box-sizing: border-box;
+    outline: 0 none;
+    opacity: 1;
+}
+
+.warp_form .item_tf .item_ip{
+    width: 100%;
+    height: 47px;
+    padding: 10px 0 8px;
+    border-width: 0 0 2px;
+    font-size: 18px;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    opacity: 1;
+}
+
+.warp_form .item_tf .check_btn{
+    position: absolute;
+    top: 2px;
+    right: 0;
+    min-width: 55px;
+    height: 43px;
+    font-size: 14px;
+    text-align: right;
+    margin: 7px 0 0 7px;
+}
+
+.warp_form .item_tf > p{
+    margin-top: 5px;
+    color: red;
+    font-size: 18px;
+}
+
+.warp_form .confirm_btn{
+    padding: 25px 0 0 0;
+    width: 100%;
+    height: 50px;
+}
+
+.confirm_btn .next_btn{
+    width: 100%;
+    height: 50px;
+}
+
+.doc-footer {
+	display: block;
+	padding-top: 42px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.doc-footer .service_info{
+	display: inline-block;
+    vertical-align: top;
+}
+
+.doc-footer .service_info .link_info{
+	display: inline-block;
+    font-size: 12px;
+    padding: 0 5px;
+    color: #4c4c4c;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+.doc-footer .txt_copyright{
+	margin-top : 6px;
+	font-size: 11px;
+	color: #7f7f7f;
+}

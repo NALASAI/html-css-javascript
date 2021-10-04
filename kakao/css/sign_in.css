@@ -9,11 +9,6 @@ header{
     margin-bottom: 40px;
 }
 
-.main_banner{
-    display: flex;
-    padding: 59px 69px 49px 69px;
-}
-
 header .wrap_banner{
     display: flex;
     flex-direction: row;
@@ -52,7 +47,12 @@ header .wrap_form{
     font-size: 15px;
 }
 
+.wrap_form .check{
+    display: none !important;
+}
+
 .wrap_form .button_yellow{
+    margin-top: 5px;
     width: 300px;
     height: 60px;
     background-color: yellow;

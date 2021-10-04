@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <header>
-            <main class="main_banner">
+            <main>
                 <div class="wrap_banner">
                     <div class="info_banner">
                         <strong>카카오 계정은 하나면 충분합니다.</strong>
@@ -22,19 +22,28 @@
                         </div>
                     </div>
                     <div class="wrap_form">
-                        <p>kakao</p>
-                        <input type="email" class="login" placeholder="카카오메일 아이디, 이메일, 전화번호"/><br>
-                        <input type="password" class="password" placeholder="비밀번호"/><br>
-                        <input type="checkbox">로그인 상태 유지
+                        <div>
+                        <h1>kakao</h1>
+                            <div>
+                                <input type="email" class="login" placeholder="카카오메일 아이디, 이메일, 전화번호"/><br>
+                            </div>
+                            <div>
+                                <input type="password" class="password" placeholder="비밀번호"/><br>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" class="check">로그인 상태 유지
+                            </div>
 
-                        <button class="button_yellow" type="button"><p>로그인</p></button>
-                        <p>------------또는------------</p>
-                        <button class="button_QR" type="button"><p>QR코드로 로그인</p></button>
+                            <button class="button_yellow" type="button"><p>로그인</p></button>
+                            <p>------------또는------------</p>
+                            <button class="button_QR" type="button"><p>QR코드로 로그인</p></button>
+                        </div>
 
                         <div class="bot_mn">
-                            <a href="#" class="plus">회원가입</a>
-                            <a href="#" class="account">카카오계정</a>
-                            <a href="#" class="passwordfind">비밀번호찾기</a>
+                            <a href="sign_up_email.html">회원가입</a>
+                            <a href="#">카카오계정</a>
+                            <label>|</label>
+                            <a href="#">비밀번호찾기</a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body{
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: "맑은고딕";
+    color: #333;
+    background-color: #fff;
+}
+
+.container{
+    display: table;
+    table-layout: fixed;
+    width: 580px;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.container .inner{
+    display: table-cell;
+    padding: 50px 0;
+    vertical-align: middle;
+}
+
+.inner .doc_header{
+    margin: 0 0 40px 0;
+}
+
+.doc_header h1 {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.doc_main{
+    padding: 0 69px;
+    border: 1px solid #ccc;
+}
+
+.doc_main .content_main{
+    padding: 55px 0 50px;
+}
+
+.content_main .content_txt{
+    display: block;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 34px;
+    text-decoration: double;
+    color: #191919;
+}
+
+.content_main form{
+    display:block;
+}
+
+.telephone_submit{
+    position: relative;
+    padding-bottom: 3px;
+}
+
+.telephone_submit .select_tf{
+    position: absolute;
+    width: auto;
+    left: 0;
+    top: 0;
+    width: 77px;
+    height: 45px;
+}
+
+.telephone_submit .view_p{
+    display:block;
+    height: 45px;
+}
+
+.telephone_submit .view_p .select_g{
+    height: 45px;
+}
+
+.telephone_submit .tf_g{
+    width: 100%;
+    height: 47px;
+    padding: 10px 60px 8px 60px;
+    border: solid #ccc;
+    border-width: 0 0 1px;
+    font-size: 18px;
+    line-height: 25px;
+    color: #191919;
+    letter-spacing: 0;
+    box-sizing: border-box;
+    outline: 0 none;
+    caret-color: #fbdd0d;
+    opacity: 1;
+}
+
+.telephone_submit .phone_number{
+    padding: 0 60px;
+}
+
+.telephone_submit .util_btn{
+    position: absolute;
+    width: 60px;
+    height: 47px;
+}
+
+.confirm_button{
+	padding-top: 45px;
+}
+
+.confirm_button .btn{
+    width: 440px;
+    height: 50px;
+    font-size: 16px;
+    line-height: 51px;
+}
+
+.doc-footer {
+	display: block;
+	padding-top: 42px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.doc-footer .service_info{
+	display: inline-block;
+    vertical-align: top;
+}
+
+.doc-footer .service_info .link_info{
+	display: inline-block;
+    font-size: 12px;
+    padding: 0 5px;
+    color: #4c4c4c;
+    vertical-align: top;
+    text-decoration: none;
+}
+
+.doc-footer .txt_copyright{
+	margin-top : 6px;
+	font-size: 11px;
+	color: #7f7f7f;
+}

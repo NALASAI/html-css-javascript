@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>회원가입 전화번호</title>
+        <link rel = "stylesheet" href="css/style.css">
+        <link rel = "stylesheet" href="css/sign_up_phone.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="inner">
+                <header class="doc_header">
+                    <h1>KAKAO</h1>
+                </header>
+                <main class="doc_main">
+                    <div class="content_main">
+                        <div class="navigation_wrap">
+                            <progress class="bar_navigation" value="25" max="100"></progress>
+                        </div>
+                        <h2 class="content_txt">
+                            카카오계정 가입을 위해
+                            <br>
+                            휴대폰 인증을 해주세요
+                        </h2>
+                        <form>
+                            <div class="telephone_submit">
+                                <div class="select_tf">
+                                    <div class="view_p">
+                                        <select id="select-iso_code" class="select_g" name="iso_code">
+                                            <option value="KR_82">+82</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="tel" name="phone_number" placeholder="전화번호 입력" id="phone-phonenumber" class="tf_g">
+                                <button type="button" class="util_btn">인증요청</button>
+                                <p class="txt_info">
+                                    잘못된 형식의 전화번호 입니다. 정확한 전화번호를 입력해 주세요
+                                </p>
+                            </div>
+                            <div class="confirm_button">
+                                <button type="button" class="btn">
+                                    다음
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+                <footer class="doc_footer">
+                    <div class="service_info">
+                        <a href="#" class="link_info">이용약관</a>
+                        <a href="#" class="link_info">개인정보 처리방침</a>
+                        <a href="#" class="link_info">운영정책</a>
+                        <a href="#" class="link_info">고객센터</a>
+                        <a href="#" class="link_info">공지사항</a>
+                    </div>
+                    <small class="txt_copyright">
+                        Copyright © Kakao Corp. All rights reserved.
+                    </small>
+                </footer>
+            </div>
+        </div>
+    </body>
 </html>
