@@ -59,7 +59,7 @@
                         </div>
                     </form>
                     <div class="info_user">
-                        <a href="sign_up_email.html">회원가입</a>
+                        <a href="sign_up_email.jsp">회원가입</a>
                         <div>
                             <a href="">카카오계정</a>
                             <label> | </label>

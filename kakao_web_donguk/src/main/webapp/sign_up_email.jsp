@@ -5,7 +5,7 @@
 
 <%
 	String id = request.getParameter("id");
-	String flag = request.getParameter("flag");	
+	String flag = request.getParameter("flag");
 %>
 
 <head>
@@ -20,11 +20,10 @@
 <body>
     <div class="container">
         <div class="inner_container">
-			<jsp:include page="sign_up_include/sign_up_header.jsp"></jsp:include>
+            <jsp:include page="sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
                 <div class="warp_form">
-                	<input type="hidden" id = "id" value = "<%=id %>">
-                	<input type="hidden" id = "flag" value = "<%=flag %>">
+                	<input type="hidden" id="flag" value="<%=flag %>">
                     <form action="sign_up_password.jsp" method="post">
                         <div class="navigation_wrap">
                             <progress class="bar_navigation" value="20" max="100"></progress>
@@ -39,7 +38,7 @@
                         </div>
                         <div class="item_msg">
                         	<span class="msg1">필수 항목입니다.</span>
-                        	<span class="msg2"><%=id %>는 이미 존재하는 아이디입니다.</span>
+                        	<span class="msg2"><%=id %>(은)는 이미 존재하는 아이디입니다.</span>
                         </div>
                         <div class="confirm_btn">
                             <button type="button" class="btn_g">다음</button>
@@ -50,20 +49,7 @@
             <jsp:include page="sign_up_include/sign_up_footer.jsp"></jsp:include>
         </div>
     </div>
-    <script type="text/javascript">
-    	const btn_g = document.querySelector('.btn_g');
-    	btn_g.onclick = () => {
-    		const item_ip = document.querySelector('.item_ip');
-        	if(item_ip.value.length == 0){
-        		const msg1 = document.querySelector('.msg1');
-        		msg1.style.display = 'block';
-        	} else{
-        		const form = document.querySelector('form');
-        		form.submit();
-        	}
-    	}
-    </script>
-    <script type="text/javascript" src="js/sign_up.js"></script>
+    <script type="text/javascript" src="js/sign_up_email.js"></script>
 </body>
 
 </html>

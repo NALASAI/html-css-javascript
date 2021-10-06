@@ -17,6 +17,22 @@
 CREATE DATABASE IF NOT EXISTS `kakaoweb` /*!40100 DEFAULT CHARACTER SET utf8mb3 */;
 USE `kakaoweb`;
 
+-- 테이블 kakaoweb.phonenumber_list_mst 구조 내보내기
+CREATE TABLE IF NOT EXISTS `phonenumber_list_mst` (
+  `phone_number` varchar(50) NOT NULL,
+  `phone_user_name` varchar(50) NOT NULL,
+  `create_date` date NOT NULL,
+  `update_date` date NOT NULL,
+  PRIMARY KEY (`phone_number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+-- 테이블 데이터 kakaoweb.phonenumber_list_mst:~0 rows (대략적) 내보내기
+DELETE FROM `phonenumber_list_mst`;
+/*!40000 ALTER TABLE `phonenumber_list_mst` DISABLE KEYS */;
+INSERT INTO `phonenumber_list_mst` (`phone_number`, `phone_user_name`, `create_date`, `update_date`) VALUES
+	('01011112222', '김준일', '2021-10-06', '2021-10-06');
+/*!40000 ALTER TABLE `phonenumber_list_mst` ENABLE KEYS */;
+
 -- 테이블 kakaoweb.user_mst 구조 내보내기
 CREATE TABLE IF NOT EXISTS `user_mst` (
   `user_email` varchar(50) NOT NULL,
@@ -28,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `user_mst` (
   PRIMARY KEY (`user_email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 테이블 데이터 kakaoweb.user_mst:~1 rows (대략적) 내보내기
+-- 테이블 데이터 kakaoweb.user_mst:~0 rows (대략적) 내보내기
 DELETE FROM `user_mst`;
 /*!40000 ALTER TABLE `user_mst` DISABLE KEYS */;
 INSERT INTO `user_mst` (`user_email`, `user_password`, `user_name`, `user_phone`, `create_date`, `update_date`) VALUES

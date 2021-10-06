@@ -78,14 +78,12 @@ progress {
 	color: red;
 }
 
-.item_msg .msg1{
-	display:none;
-	color:red;
+.item_msg .msg1 {
+	display: none;
 }
 
-.item_msg .msg2{
-	display:none;
-	color:red;
+.item_msg .msg2 {
+	display: none;
 }
 
 .util_tf {

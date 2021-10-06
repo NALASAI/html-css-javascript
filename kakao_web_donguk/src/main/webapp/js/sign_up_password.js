@@ -1,6 +1,18 @@
+const item_ip = document.querySelector('.item_ip');
 const btn_g = document.querySelector('.btn_g');
+
+item_ip.onkeypress = () => {
+	if(window.event.keyCode == 13){
+		window.event.preventDefault();
+		onSubmit();
+	}
+}
+
 btn_g.onclick = () => {
-	const item_ip = document.querySelector('.item_ip');
+	onSubmit();
+}
+
+function onSubmit(){
 	const msg1 = document.querySelector('.msg1');
 	const msg2 = document.querySelector('.msg2');
 	if(item_ip.value.length == 0){
@@ -18,6 +30,7 @@ btn_g.onclick = () => {
 		}
 	}
 }
+
 
 function checkPassword(id,password){
 	const msg2 = document.querySelector('.msg2');

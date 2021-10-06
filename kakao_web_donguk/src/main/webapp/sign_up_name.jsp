@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html lang="ko">
 
+<%
+	String id = request.getParameter("id");
+	String password = request.getParameter("password");
+	String repassword = request.getParameter("repassword");
+%>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,26 +24,28 @@
             <jsp:include page="sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
                 <div class="warp_form">
-                    <form action="sign_up_service/sign_up_service_name.jsp" method="post">
+                    <form action="sing_up_phone.jsp" method="post">
+                    	<input type="hidden" name="id" value="<%=id %>">
+                    	<input type="hidden" id="password" name="password" value="<%=password %>">
+                    	<input type="hidden" id="repassword" name="repassword" value="<%=repassword %>">
                         <div class="navigation_wrap">
                             <progress class="bar_navigation" value="80" max="100"></progress>
                         </div>
                         <h2>카카오계정 가입을 위해<br>
                             이름을 입력해 주세요.</h2>
                         <div class="item_tf">
-                            <input type="text" class="item_ip" placeholder="이름 입력">
+                            <input type="text" class="item_ip" name = "name" placeholder="이름 입력">
                         </div>
                         <div class="confirm_btn">
                             <button class="btn_g" onclick="location.href='sign_up_phone.html'; return false;">다음</button>
                         </div>
-                        
-
                     </form>
                 </div>
             </main>
             <jsp:include page="sign_up_include/sign_up_footer.jsp"></jsp:include>
         </div>
     </div>
+    <script type="text/javascript" src="js/sing_up_name.js"></script>
 </body>
 
 </html>
