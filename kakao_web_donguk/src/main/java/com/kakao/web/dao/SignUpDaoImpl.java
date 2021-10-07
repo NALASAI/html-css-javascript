@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.kakao.web.db.DBConnectionMgr;
+import com.kakao.web.dto.UserDto;
 
 public class SignUpDaoImpl implements SignUpDao{
 	
@@ -36,6 +37,64 @@ public class SignUpDaoImpl implements SignUpDao{
 			e.printStackTrace();
 		} finally {
 			pool.freeConnection(con, pstmt, rs);
+		}
+		
+		return flag;
+	}
+	
+	@Override
+	public int phoneNumberCheck(String phone, String name) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		int flag = 0;
+		
+		try {
+			con = pool.getConnection();
+			sql = "SELECT COUNT(pm.phone_number), COUNT(um.user_phone) FROM phonenumber_list_mst pm LEFT OUTER JOIN user_mst um ON(um.user_phone = pm.phone_number) WHERE pm.phone_number = ? AND pm.phone_user_name = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, phone);
+			pstmt.setString(2, name);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			flag = rs.getInt(1) + rs.getInt(2);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		
+		return flag;
+	}
+	
+	@Override
+	public boolean signUp(UserDto userDto) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		boolean flag = false;
+		
+		try {
+			con = pool.getConnection();
+			sql = "insert into user_mst values(?, ?, ?, ?, now(), now())";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,  userDto.getUser_email());
+			pstmt.setString(2,  userDto.getUser_password());
+			pstmt.setString(3,  userDto.getUser_name());
+			pstmt.setString(4,  userDto.getUser_phone());
+			
+			pstmt.executeUpdate();
+			
+			return flag;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
 		}
 		
 		return flag;
