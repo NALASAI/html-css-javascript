@@ -23,14 +23,14 @@
 <body>
     <div class="container">
         <div class="inner_container">
-            <jsp:include page="sign_up_include/sign_up_header.jsp"></jsp:include>
+            <jsp:include page="include/sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
                 <div class="warp_form">
                     <form action="sign_up_check.jsp" method="post">
                     
                     	<input type="hidden" name="id" value="<%=id %>">
                     	<input type="hidden" id="password" name="password" value="<%=password %>">
-                    	<input type="hidden" id="repassword" name="repassword" value="<%=repassword %>">	
+                    	<input type="hidden" id="repassword" name="repassword" value="<%=repassword %>">
                     	<input type="hidden" id="name" name="name" value="<%=name %>">
                     	<input type="hidden" id="phone" value="<%=phone %>">
                     	<input type="hidden" id="flag" name="flag" value="<%=flag %>">
@@ -42,16 +42,16 @@
                         <h2>카카오계정 가입을 위해<br>
                             휴대폰 인증을 진행해 주세요.</h2>
                         <div class="item_tf">
-                            <input type="tel" class="item_ip" name="phone" placeholder="전화번호 입력">
+                            <input type="tel" class="item_ip" name="phone" placeholder="전화번호 입력" autofocus="autofocus">
                             <div class="util_tf">
                                 <button type="button" class="button_round">인증요청</button>
                             </div>
                         </div>
-                        <div class = "item_msg">
-                        	<span class = "msg1">필수항목입니다</span>
-							<span class = "msg2">이미 가입된 객체입니다</span>
-							<span class = "msg3">인증실패, 연락처를 다시 확인해 보세요</span>
-							<span class = "msg4">인증성공</span>
+                        <div class="item_msg">
+                        	<span class="msg1">필수 항목입니다.</span>
+                        	<span class="msg2">이미 가입된 연락처 입니다.</span>
+                        	<span class="msg3">인증실패. 연락처를 다시 확인해 주세요.</span>
+                        	<span class="msg4">인증성공.</span>
                         </div>
                         <div class="confirm_btn">
                             <button type="button" class="btn_g">마침</button>
@@ -59,7 +59,7 @@
                     </form>
                 </div>
             </main>
-            <jsp:include page="sign_up_include/sign_up_footer.jsp"></jsp:include>
+            <jsp:include page="include/sign_up_include/sign_up_footer.jsp"></jsp:include>
         </div>
     </div>
     <script type="text/javascript" src="js/sign_up_phone.js"></script>

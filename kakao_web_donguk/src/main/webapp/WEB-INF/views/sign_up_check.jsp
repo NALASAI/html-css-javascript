@@ -14,7 +14,7 @@
 	SignUpDao signUpDao = new SignUpDaoImpl();
 	
 	if(submit_flag.equals("1")){
-		//가입 요청
+		//가입요청
 		UserDto userDto = new UserDto();
 		userDto.setUser_email(id);
 		userDto.setUser_password(password);
@@ -27,14 +27,13 @@
 			response.sendRedirect("sign_in.jsp");
 		}
 		
-	} else if(submit_flag.equals("2")){
-		// 전화번호 인증 요청
-		int flag = signUpDao.phoneNumberCheck(phone, name);
-		System.out.println(phone + name);
+	}else if(submit_flag.equals("2")) {
+		//전화번호 인증요청
+		int flag =  signUpDao.phoneNumberCheck(phone, name);
 %>
-	<jsp:forward page = "sign_up_phone.jsp">
-		<jsp:param value="<%=flag %>" name="flag"/>
-	</jsp:forward>
+		<jsp:forward page="sign_up_phone.jsp">
+			<jsp:param value="<%=flag %>" name="flag"/>
+		</jsp:forward>
 <%
 	}
 %>
