@@ -1,5 +1,5 @@
-<%@page import="com.kakao.web.dao.SignInDaoImpl"%>
-<%@page import="com.kakao.web.dao.SignInDao"%>
+<%@page import="com.kakao.web.sign.model.dao.SignInDaoImpl"%>
+<%@page import="com.kakao.web.sign.model.dao.SignInDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,6 +9,7 @@
 	String login_id = request.getParameter("login_id");
 	String login_password = request.getParameter("login_password");
 	int flag = 3;
+	
 	if(submit_flag.equals("1")){		
 		SignInDao signInDao = new SignInDaoImpl();
 		
@@ -90,7 +91,7 @@
                         </div>
                     </form>
                     <div class="info_user">
-                        <a href="sign_up_email.jsp">회원가입</a>
+                        <a href="signUp">회원가입</a>
                         <div>
                             <a href="">카카오계정</a>
                             <label> | </label>

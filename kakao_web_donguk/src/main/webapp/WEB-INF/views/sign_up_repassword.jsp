@@ -2,10 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-<%
-	String id = request.getParameter("id");
-	String password = request.getParameter("password");
-%>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +17,9 @@
             <jsp:include page="include/sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
                 <div class="warp_form">
-                    <form action="sign_up_name.jsp" method="post">
-                    	<input type="hidden" name="id" value="<%=id %>">
-                    	<input type="hidden" id="password" name="password" value="<%=password %>">
+                    <form action="signUp" method="post">
+                    	<input type="hidden" name="submit_status" value="repassword">
+                    	<input type="hidden" id="password" value="<%=request.getParameter("password") %>">
                         <div class="navigation_wrap">
                             <progress class="bar_navigation" value="60" max="100"></progress>
                         </div>
