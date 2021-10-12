@@ -19,9 +19,9 @@ public class SignUp extends HttpServlet {
 	public SignUp() {
 		signUpService = new SignUpServiceImpl();
 	}
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		request.getRequestDispatcher("WEB-INF/views/sign_up_email.jsp").forward(request, response);
 	}
@@ -29,12 +29,14 @@ public class SignUp extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String submitStatus = request.getParameter("submit_status");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		
+		String submitStatus = request.getParameter("submit_status");
 		
 		if(submitStatus.equals("email")) {
 			String id = request.getParameter("id");
-						
+			
 			int flag = signUpService.idCheck(id);
 			request.setAttribute("id", id);
 			
@@ -53,7 +55,6 @@ public class SignUp extends HttpServlet {
 			request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp").forward(request, response);
 		}else if(submitStatus.equals("phone")) {
 			String submitFlag = request.getParameter("submit_flag");
-			
 			if(submitFlag.equals("1")) {
 				//가입요청
 				UserDto userDto = new UserDto();
@@ -61,8 +62,6 @@ public class SignUp extends HttpServlet {
 				userDto.setUser_password(request.getParameter("password"));
 				userDto.setUser_name(request.getParameter("name"));
 				userDto.setUser_phone(request.getParameter("phone"));
-				
-				System.out.println("flag");
 				
 				boolean signUpFlag = signUpService.signUp(userDto);
 				if(signUpFlag == true) {
@@ -75,17 +74,17 @@ public class SignUp extends HttpServlet {
 				//전화번호 인증요청
 				String phone = request.getParameter("phone");
 				String name = request.getParameter("name");
-				if(request.getParameter("phone") != null && request.getParameter("name") != null) {
+				if(phone != null && name != null) {
 					int flag = signUpService.phoneNumberCheck(phone, name);
+					request.setAttribute("flag", flag);
 					
-					request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp");
+					request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp").forward(request, response);
 				}
 			}
 		}else {
-			System.out.println("접속오류");
+			System.out.println("접속오류!(잘못된 접근)");
 		}
-			
-		
-		System.out.println("post요청");
+	
 	}
+
 }

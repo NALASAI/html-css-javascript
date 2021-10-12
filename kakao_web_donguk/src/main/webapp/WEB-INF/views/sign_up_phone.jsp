@@ -19,8 +19,8 @@
                 <div class="warp_form">
                     <form action="signUp" method="post">
                     	<input type="hidden" name="submit_status" value="phone">
-                    	<input type="hidden" id="id" value="<%=request.getParameter("id") %>">
-                    	<input type="hidden" id="password" value="<%=request.getParameter("password") %>">
+                    	<input type="hidden" name="id" value="<%=request.getParameter("id") %>">
+                   		<input type="hidden" name="password" value="<%=request.getParameter("password") %>">
                     	<input type="hidden" id="name" name="name" value="<%=request.getParameter("name") %>">
                     	<input type="hidden" id="phone" value="<%=request.getParameter("phone") %>">
                     	<input type="hidden" id="flag" name="flag" value="<%=request.getAttribute("flag") %>">

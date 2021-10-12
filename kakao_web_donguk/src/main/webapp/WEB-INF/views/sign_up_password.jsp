@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +19,7 @@
                 <div class="warp_form">
                     <form action="signUp" method="post">
                     	<input type="hidden" name="submit_status" value="password">
+
                     	<input type="hidden" id="id" name="id" value="<%=request.getAttribute("id") %>">
                         <div class="navigation_wrap">
                             <progress class="bar_navigation" value="40" max="100"></progress>

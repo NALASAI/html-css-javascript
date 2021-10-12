@@ -30,4 +30,11 @@ public class UserDto {
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
+	@Override
+	public String toString() {
+		return "UserDto [user_email=" + user_email + ", user_password=" + user_password + ", user_name=" + user_name
+				+ ", user_phone=" + user_phone + "]";
+	}
+	
+	
 }

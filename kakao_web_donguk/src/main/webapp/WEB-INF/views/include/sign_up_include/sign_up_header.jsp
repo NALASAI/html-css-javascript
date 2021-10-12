@@ -2,5 +2,6 @@
     pageEncoding="UTF-8"%>
 
 <header>
-	<h1 class="brand_logo">kakao</h1>
+    <h1 class="brand_logo">kakao</h1>
 </header>
+            

@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import com.kakao.web.db.DBConnectionMgr;
 import com.kakao.web.sign.model.dto.UserDto;
 
-public class SignUpDaoImpl implements SignUpDao{
+public class SignUpDaoImpl implements SignUpDao {
 	
 	private DBConnectionMgr pool = null;
 	
@@ -52,7 +52,7 @@ public class SignUpDaoImpl implements SignUpDao{
 		
 		try {
 			con = pool.getConnection();
-			sql = "SELECT COUNT(pm.phone_number), COUNT(um.user_phone) FROM phonenumber_list_mst pm LEFT OUTER JOIN user_mst um ON(um.user_phone = pm.phone_number) WHERE pm.phone_number = ? AND pm.phone_user_name = ?";
+			sql = "select count(pm.phone_number), count(um.user_phone) from phonenumber_list_mst pm left outer join user_mst um on(um.user_phone = pm.phone_number) where pm.phone_number = ? and pm.phone_user_name = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, phone);
 			pstmt.setString(2, name);
@@ -74,20 +74,21 @@ public class SignUpDaoImpl implements SignUpDao{
 	public boolean signUp(UserDto userDto) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 		String sql = null;
 		boolean flag = false;
 		
 		try {
 			con = pool.getConnection();
+			System.out.println(userDto);
 			sql = "insert into user_mst values(?, ?, ?, ?, now(), now())";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1,  userDto.getUser_email());
-			pstmt.setString(2,  userDto.getUser_password());
-			pstmt.setString(3,  userDto.getUser_name());
-			pstmt.setString(4,  userDto.getUser_phone());
+			pstmt.setString(1, userDto.getUser_email());
+			pstmt.setString(2, userDto.getUser_password());
+			pstmt.setString(3, userDto.getUser_name());
+			pstmt.setString(4, userDto.getUser_phone());
 			
 			pstmt.executeUpdate();
+			flag = true;
 			
 			return flag;
 			
@@ -100,3 +101,11 @@ public class SignUpDaoImpl implements SignUpDao{
 		return flag;
 	}
 }
+
+
+
+
+
+
+
+

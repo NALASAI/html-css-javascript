@@ -4,8 +4,6 @@ const button_round = document.querySelector('.button_round');
 const submit_flag = document.querySelector('#submit_flag');
 const flag = document.querySelector('#flag');
 
-alert(flag.value)
-
 if(flag.value == 0){
 	const msg1 = document.querySelector('.msg1');
 	const msg2 = document.querySelector('.msg2');
@@ -22,9 +20,9 @@ if(flag.value == 0){
 	msg2.style.display = "none";
 	msg3.style.display = "none";
 	msg4.style.display = "block";
-	const phone = document.querySelector("#phone");
+	const phone = document.querySelector('#phone');
 	item_ip.value = phone.value;
-	item_ip.readOnly= true;
+	item_ip.readOnly = true;
 }else if(flag.value == 2){
 	const msg1 = document.querySelector('.msg1');
 	const msg2 = document.querySelector('.msg2');
@@ -60,8 +58,8 @@ function onSubmit(){
 	const msg1 = document.querySelector('.msg1');
 	if(item_ip.value.length == 0){
 		msg1.style.display = 'block';
-	} else{
+	} else {
 		const form = document.querySelector('form');
-		form.submit();	
+		form.submit();
 	}
 }

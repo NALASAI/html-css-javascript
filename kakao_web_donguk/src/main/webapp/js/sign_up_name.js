@@ -18,6 +18,6 @@ function onSubmit(){
 		msg1.style.display = 'block';
 	} else {
 		const form = document.querySelector('form');
-			form.submit();
+		form.submit();
 	}
 }
