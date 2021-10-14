@@ -33,13 +33,15 @@ public class Index extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		Cookie[] cookies = request.getCookies();
-		for(Cookie c : cookies) {
-			 if(c.getName().equals("userId")) {
-				 HttpSession session = request.getSession();
-				 User user = userService.getUser(c.getValue());
-				 
-				 session.setAttribute("login_user", user);
-			 }
+		if(cookies != null) {
+			for(Cookie c : cookies) {
+				 if(c.getName().equals("userId")) {
+					 HttpSession session = request.getSession();
+					 User user = userService.getUser(c.getValue());
+					 
+					 session.setAttribute("login_user", user);
+				 }
+			}
 		}
 		
 		request.getRequestDispatcher("WEB-INF/views/index.jsp").forward(request, response);
