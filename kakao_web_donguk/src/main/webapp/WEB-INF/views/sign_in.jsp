@@ -97,6 +97,6 @@
         </footer>
     </div>
     <script src="js/sign_in.js"></script>
-    <script src="https://kit.fontawesome.com/c3df4d7d1c.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/b633b9875d.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -43,6 +43,7 @@ public class SignIn extends HttpServlet {
 
 		int flag = signInService.signIn(login_id, login_password);
 		if(flag == 2) {
+			                                                                                                                                                                 
 			HttpSession session = request.getSession();
 			User login_user = signInService.getUser(login_id);
 			session.setAttribute("login_user", signInService.getUser(login_id));
@@ -63,4 +64,4 @@ public class SignIn extends HttpServlet {
 	}
 
 }
- 
+  
