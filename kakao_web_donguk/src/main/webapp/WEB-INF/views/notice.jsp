@@ -29,7 +29,7 @@
             <div class="notice_main">
             
             	<c:forEach var="notice" items="${noticeList }">
-            		<a href="">
+            		<a href="notice-dtl?code=${notice.notice_code }">
 	                    <ul>
 	                        <li class="notice_num">${notice.notice_code }</li>
 	                        <li class="notice_title">${notice.notice_title }</li>

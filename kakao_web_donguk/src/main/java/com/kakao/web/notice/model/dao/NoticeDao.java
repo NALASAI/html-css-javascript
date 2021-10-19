@@ -7,4 +7,5 @@ import com.kakao.web.notice.model.dto.NoticeDto;
 public interface NoticeDao {
 	public List<NoticeDto> getNoticeAll();
 	public int insertNotice(NoticeDto noticeDto);
+	public NoticeDto getNotice(int notice_code);
 }
