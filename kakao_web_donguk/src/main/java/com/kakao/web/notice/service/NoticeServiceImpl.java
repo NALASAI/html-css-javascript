@@ -69,11 +69,35 @@ public class NoticeServiceImpl implements NoticeService{
 		int notice_code = Integer.parseInt(code);
 		NoticeDto noticeDto = noticeDao.getNotice(notice_code);
 		System.out.println(noticeDto.getNextNotice_code());
-		System.out.println(noticeDto.getNextNotice_title());
-		System.out.println(noticeDto.getPreNotice_code());
-		System.out.println(noticeDto.getPreNotice_title());
 		return noticeDto;
 	}
+	
+	@Override
+	public int updateNotice(NoticeDto noticeDto) {
+        int result = noticeDao.updateNotice(noticeDto);
+        if(result == 2) {
+            System.out.println("정상적으로 notice가 수정되었습니다.");
+            result = 1;
+        }else {
+            System.out.println("notice 수정 오류");
+            result = 0;
+        }
+        return result;
+	}
+	
+    @Override
+    public int deleteNotice(String code) {
+        int notice_code = Integer.parseInt(code);
+        int result = noticeDao.deleteNotice(notice_code);
+        if(result == 2) {
+            System.out.println(notice_code + "번 notice 삭제 완료");
+            result = 1;
+        }else {
+            System.out.println(notice_code + "번 notice 삭제 오류");
+            result = 0;
+        }
+        return result;
+    }
 }
 
 
