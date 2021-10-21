@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -6,27 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel = "stylesheet" href="css/style.css">
-    <link rel = "stylesheet" href="css/index.css">
     <link rel = "stylesheet" href="css/mainNav.css">
     <link rel = "stylesheet" href="css/mypage.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="nav">
-                <a href="" class="brand_logo"><h1>kakao</h1></a>
-                <ul class="nav_item">
-                    <a href=""><li>카카오</li></a>
-                    <a href=""><li>뉴스</li></a>
-                    <a href=""><li>기술과 서비스</li></a>
-                    <a href=""><li>약속과 책임</li></a>
-                </ul>
-                <ul class="nav_user">
-                    <a href="sign_in.jsp"><li><i class="fas fa-user"></i></li></a>
-                    <a href="sign_up_email.jsp"><li><i class="fas fa-user-plus"></i></li></a>
-                </ul>
-            </div>
-        </header>
+        <jsp:include page="include/index_include/index_header.jsp"></jsp:include>
         <main>
             <div class="mypage-content"> 
                 <div>
@@ -34,11 +21,12 @@
                 </div>
                 <div class="mypage-items">
                     <div class="item_tf">
-                        <input type = "hidden" id="user_email" value="junil">
-                        <label class="item_lb" for="">junil@kakao.com</label>
+                        <input type = "hidden" id="user_email" name="user_email" value="${login_user.id }">
+                        <label class="item_lb" for="">${login_user.id }@kakao.com</label>
                     </div>
                     <div class="item_tf">
-                        <input type="password" class="item_ip" placeholder="비밀번호 입력">
+	                    <input type = "hidden" name="user_password" value="${login_user.password }">
+                        <input type="password" class="item_ip" name="update_password" placeholder="비밀번호 입력">
                     </div>
                     <div class="item_msg">
                         <span class="msg1"></span>
@@ -50,10 +38,11 @@
                         <span class="msg1">비밀번호가 일치하지 않습니다.</span>
                     </div>
                     <div class="item_tf">
-                        <input type="hidden" id="user_name" value="김준일">
-                        <label class="item_lb" for="">김준일</label>
+                        <input type="hidden" id="user_name" value="${login_user.name }">
+                        <label class="item_lb" for="">${login_user.name }</label>
                     </div>
                     <div class="item_tf">
+	                    <input type="hidden" id="user_phone" value="${login_user.phone }">
                         <input type="tel" class="item_ip" placeholder="전화번호 입력">
                         <div class="util_tf">
                             <button class="button_round">인증요청</button>

@@ -19,7 +19,7 @@ public class NoticeDelete extends HttpServlet {
     	noticeService = new NoticeServiceImpl();
     }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String code = request.getParameter("code");
 		int result = noticeService.deleteNotice(code);
 		if(result == 1) {
