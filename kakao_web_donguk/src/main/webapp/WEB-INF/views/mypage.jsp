@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/mainNav.css">
     <link rel="stylesheet" href="css/mypage.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -41,18 +42,18 @@
 	                        <span class="msg1">비밀번호가 일치하지 않습니다.</span>
 	                    </div>
 	                    <div class="item_tf">
-	                        <input type="hidden" name="user_name" value="${login_user.name }">
+	                        <input type="hidden" id="user_name" name="user_name" value="${login_user.name }">
 	                        <label class="item_lb" for="">${login_user.name }</label>
 	                    </div>
 	                    <div class="item_tf">
-	                        <input type="hidden" name="user_phone" value="${login_user.phone }">
+	                        <input type="hidden" id="user_phone" name="user_phone" value="${login_user.phone }">
 	                        <label class="item_lb" for="">${login_user.phone }</label>
 	                    </div>
 	                    <div class="item_tf">
 	                    	<input type="hidden" id="phone_flag" name="phone_flag" value="2">
 	                        <input type="tel" class="item_ip" name="update_phone" placeholder="전화번호 입력">
 	                        <div class="util_tf">
-	                            <button class="button_round">인증요청</button>
+	                            <button type="button" class="button_round">인증요청</button>
 	                        </div>
 	                    </div>
 	                    <div class="item_msg">

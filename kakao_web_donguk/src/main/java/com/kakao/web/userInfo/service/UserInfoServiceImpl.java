@@ -15,4 +15,17 @@ public class UserInfoServiceImpl implements UserInfoService{
 	public int updateUserInfo(UpdateUserDto updateUserDto) {
 		return userInfoDao.updateUserInfo(updateUserDto);
 	}
+	
+    @Override
+    public int phoneNumberCheck(String phone, String name) {
+        int result = userInfoDao.phoneNumberCheck(phone, name);
+        if(result == 0) {
+            System.out.println("통신사에 등록되지 않은 번호");
+        }else if(result == 2) {
+            System.out.println("이미 가입된 번호");
+        }else if(result == 1) {
+            System.out.println("가입 가능한 번호");
+        }
+        return result;
+    }
 }

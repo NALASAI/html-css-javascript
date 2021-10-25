@@ -42,7 +42,7 @@ public class Mypage extends HttpServlet {
 		updateUserDto.setEmail(request.getParameter("user_email"));
 		updateUserDto.setPassword(request.getParameter("update_password"));
 		updateUserDto.setName(request.getParameter("user_name"));
-		updateUserDto.setPhone(request.getParameter("user_phone"));
+        updateUserDto.setPhone(request.getParameter("update_phone"));
 		
 		int result = userInfoService.updateUserInfo(updateUserDto);
 		if(result == 1) {
