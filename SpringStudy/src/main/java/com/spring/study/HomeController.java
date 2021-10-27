@@ -39,7 +39,7 @@ public class HomeController {
 		
         centralControl.onAll();
 		
-		return "home";
+		return "/home";
 	}
 	
     @RequestMapping(value = "/home", method = RequestMethod.GET)
