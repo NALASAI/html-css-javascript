@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="insert-data" method="post">
+	<form action="insert-data" method="post" enctype="application/form-data">
 		아이디 : <input type="text" name="user_id">
 		비밀번호 : <input type="password" name="user_password">
 		이름 : <input type="text" name="user_name">

@@ -1,6 +1,7 @@
 package com.spring.study.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,7 +17,7 @@ public class DeliveryController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/delivery-request", method = RequestMethod.POST, produces = "text/html; charset=UTF-8")
+	@RequestMapping(value="/delivery-request", method = RequestMethod.POST)
 	public ModelAndView deliveryInsert(CustomerModel customerModel) {
 		
 		ModelAndView mav2 = new ModelAndView("deliveryInfo");
@@ -27,5 +28,11 @@ public class DeliveryController {
 		System.out.println(customerModel.getCustomer_request());
 		
 		return mav2;
+	}
+	
+	@RequestMapping(value="/delivery-request2", method = RequestMethod.POST)
+	public String deliveryInsert(Model model, CustomerModel customerModel) {
+			model.addAttribute("customerModel", customerModel);
+			return "deliveryInfo";
 	}
 }
