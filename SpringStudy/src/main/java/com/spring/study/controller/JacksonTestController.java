@@ -1,0 +1,20 @@
+package com.spring.study.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.spring.study.model.dto.UserDto;
+
+@Controller
+public class JacksonTestController {
+	
+	@ResponseBody
+	@RequestMapping(value="jacksonRequest", method = RequestMethod.POST)
+	public String jacksonData(@RequestBody UserDto userDto) {
+		System.out.println(userDto);
+		return "jsonData";
+	}
+}
