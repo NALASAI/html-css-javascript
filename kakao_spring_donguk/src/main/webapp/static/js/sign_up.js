@@ -3,8 +3,7 @@ const item_ip = document.querySelectorAll('.item_ip');
 const button_round = document.querySelector('.button_round');
 const btn_g = document.querySelectorAll('.btn_g');
 
-warp_form[0].style.display = 'block';
-item_ip[0].focus();
+signUpOnLoad(0);
 
 var signUpData = {
 	signUpEmail: '',
@@ -13,6 +12,11 @@ var signUpData = {
 	signUpName: '',
 	signUpPhone: '',
 	phoneFlag: 0
+}
+
+function signUpOnLoad(){
+	warp_form[indexNumber].style.display = 'block';
+	item_ip[indexNumber ].focus();
 }
 
 function clearMsgNode(msg){
@@ -145,20 +149,29 @@ function signUpSubmit(){
 	})
 }
 
+
+// 버튼 클릭시 또는 input의 엔터 이벤트가 발생시
 function nextService(indexNumber) {
+	// input의 입력값 확인(필수입력확인)
 	if(item_ip[indexNumber].value.length == 0){
 		let msgText = '필수항목입니다.';
 		messageService(indexNumber, msgText, 0);
-	} else if(indexNumber == 0) {
+	}
+	// 이메일 중복 확인
+	else if(indexNumber == 0) {
 		emailCheck(indexNumber);
-	} else if(indexNumber == 1) {
+	}
+	// 비밀번호 정규식 확인
+	else if(indexNumber == 1) {
 		let checkMsg = passwordCheck(signUpData.signUpEmail, item_ip[indexNumber].value);
 		if(checkMsg == 'true') {
 			nextPage(indexNumber);
 		}else {
 			messageService(indexNumber, checkMsg, 0);
 		}
-	} else if(indexNumber == 2) {
+	}
+	// 비밀번호 재확인
+	else if(indexNumber == 2) {
 		if(item_ip[1].value == item_ip[2].value){
 			signUpData.signUpPassword = item_ip[2].value;
 			nextPage(indexNumber);
@@ -166,10 +179,14 @@ function nextService(indexNumber) {
 			let msgText = '비밀번호가 일치하지 않습니다.';
 			messageService(indexNumber, msgText, 0);
 		}
-	} else if(indexNumber == 3) {
+	}
+	// signUpData 객체의 signUpName에 input의 데이터 대입
+	else if(indexNumber == 3) {
 		signUpData.signUpName = item_ip[indexNumber].value;
 		nextPage(indexNumber);
-	} else if(indexNumber == 4) {
+	}
+	// 전화번호 인증 유무 확인 또는 서브밋(insert)
+	else if(indexNumber == 4) {
 		if(signUpData.phoneFlag != 1){
 			let msgText = '전화번호 인증이 되지 않았습니다.';
 			messageService(indexNumber, msgText, 0);
