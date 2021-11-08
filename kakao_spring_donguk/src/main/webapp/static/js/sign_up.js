@@ -14,9 +14,9 @@ var signUpData = {
 	phoneFlag: 0
 }
 
-function signUpOnLoad(){
+function signUpOnLoad(indexNumber){
 	warp_form[indexNumber].style.display = 'block';
-	item_ip[indexNumber ].focus();
+	item_ip[indexNumber].focus();
 }
 
 function clearMsgNode(msg){
@@ -74,30 +74,24 @@ function emailCheck(indexNumber){
 }
 
 function passwordCheck(id, password){
-	
     if(!/^[a-zA-Z0-9]{10,15}$/.test(password)){
         let msg = '숫자와 영문자 조합으로 10~15자리를 사용해야 합니다.';
         return msg;
     }
-    
     var checkNumber = password.search(/[0-9]/g);
     var checkEnglish = password.search(/[a-z]/ig);
-    
     if(checkNumber <0 || checkEnglish <0){
         let msg = '숫자와 영문자를 혼용하여야 합니다.';
         return msg;
     }
-    
     if(/(\w)\1\1\1/.test(password)){
         let msg = '444같은 문자를 4번 이상 사용하실 수 없습니다.';
         return msg;
     }
-    
     if(password.search(id) > -1){
-        let msg = "비밀번호에 아이디가 포함되었습니다.";
+        let msg = '비밀번호에 아이디가 포함되었습니다.';
         return msg;
     }
-    
     return 'true';
 }
 
@@ -150,18 +144,18 @@ function signUpSubmit(){
 }
 
 
-// 버튼 클릭시 또는 input의 엔터 이벤트가 발생시
+//버튼 클릭시 또는 input의 엔터 이벤트가 발생시 호출
 function nextService(indexNumber) {
 	// input의 입력값 확인(필수입력확인)
 	if(item_ip[indexNumber].value.length == 0){
 		let msgText = '필수항목입니다.';
 		messageService(indexNumber, msgText, 0);
-	}
-	// 이메일 중복 확인
+	} 
+	// 이메일 중복확인.
 	else if(indexNumber == 0) {
 		emailCheck(indexNumber);
-	}
-	// 비밀번호 정규식 확인
+	} 
+	// 비밀번호 정규식 확인.
 	else if(indexNumber == 1) {
 		let checkMsg = passwordCheck(signUpData.signUpEmail, item_ip[indexNumber].value);
 		if(checkMsg == 'true') {
@@ -169,8 +163,8 @@ function nextService(indexNumber) {
 		}else {
 			messageService(indexNumber, checkMsg, 0);
 		}
-	}
-	// 비밀번호 재확인
+	} 
+	// 비밀번호 재확인.(이전의 비밀번호와 일치하는지 확인)
 	else if(indexNumber == 2) {
 		if(item_ip[1].value == item_ip[2].value){
 			signUpData.signUpPassword = item_ip[2].value;
@@ -179,12 +173,12 @@ function nextService(indexNumber) {
 			let msgText = '비밀번호가 일치하지 않습니다.';
 			messageService(indexNumber, msgText, 0);
 		}
-	}
+	} 
 	// signUpData 객체의 signUpName에 input의 데이터 대입
 	else if(indexNumber == 3) {
 		signUpData.signUpName = item_ip[indexNumber].value;
 		nextPage(indexNumber);
-	}
+	} 
 	// 전화번호 인증 유무 확인 또는 서브밋(insert)
 	else if(indexNumber == 4) {
 		if(signUpData.phoneFlag != 1){

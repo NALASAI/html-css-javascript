@@ -73,72 +73,74 @@ function checkPassword(id,password){
     return true;
 }
 
+
 const button_round = document.querySelector('.button_round');
 button_round.onclick = () => {
-    if(item_ips[2].value.length == 0){
-        item_ips[2].value = $("#user_phone").val();
-    }
-    
-    let phoneInfo = {
-        user_name:$("#user_name").val(),
-        user_phone:item_ips[2].value
-    };
+	if(item_ips[2].value.length == 0){
+		item_ips[2].value = $("#user_phone").val();
+	}
 	
-    $.ajax({
-        type:"get",
-        url:"phone-number-check",
-        data: {
-            phoneInfo:JSON.stringify(phoneInfo)
-        },
-        dataType: "text",
-        success: function(data){
-	        phoneNumberCheckFlag = data;
-            const msg2 = document.querySelector('.msg2');
-            const msg3 = document.querySelector('.msg3');
-            msg1[2].style.display = 'none';
-            msg2.style.display = 'none';
-            msg3.style.display = 'none';
-            
-            if(data == 0){
-                msg2.style.display = 'block';
-            }else if(data == 2){
-                msg1[2].style.display = 'block';
-            }else if(data == 1){
-                msg3.style.display = 'block';
-            }
-        },
+	let phoneInfo = {
+		user_name:$("#user_name").val(),
+		user_phone:item_ips[2].value
+	};
+	
+	$.ajax({
+		type:"get",
+		url:"phone-number-check",
+		data: {
+			phoneInfo:JSON.stringify(phoneInfo)
+		},
+		dataType: "text",
+		success: function(data){
+			phoneNumberCheckFlag = data;
+			const msg2 = document.querySelector('.msg2');
+			const msg3 = document.querySelector('.msg3');
+			msg1[2].style.display = 'none';
+			msg2.style.display = 'none';
+			msg3.style.display = 'none';
+			
+			if(data == 0){
+				msg2.style.display = 'block';
+			}else if(data == 2){
+				msg1[2].style.display = 'block';
+			}else if(data == 1){
+				msg3.style.display = 'block';
+			}
+		},
 		error: function(){
 			
 		}
 	})
 }
 
+
 const btn_g = document.querySelector('.btn_g');
 btn_g.onclick = () => {
 	const form = document.querySelector('form');
 	if(password_flag.value == 1 && repassword_flag.value == 1){
-        if(item_ips[2].value.length != 0){
-            if(phoneNumberCheckFlag == 1){
-                form.submit();
-            }
-        }else{
-            phoneNumberCheckFlag = 3;
-            item_ips[2].value = $("#user_phone").val();
-            form.submit();
-        }
-        
+		if(item_ips[2].value.length != 0){
+			if(phoneNumberCheckFlag == 1){
+				form.submit();
+			}
+		}else{
+			phoneNumberCheckFlag = 3;
+			item_ips[2].value = $("#user_phone").val();
+			form.submit();
+		}
+		
 	}else if(password_flag.value == 2 && repassword_flag.value == 2){
 		const user_password = document.querySelector('#user_password');
 		item_ips[0].value = user_password.value;
-        if(item_ips[2].value.length != 0){
-            if(phoneNumberCheckFlag == 1){
-                form.submit();
-            }
-        }else{
-            phoneNumberCheckFlag = 3;
-            item_ips[2].value = $("#user_phone").val();
-            alert('수정 할 회원 정보가 없습니다.')
-        }
+		if(item_ips[2].value.length != 0){
+			if(phoneNumberCheckFlag == 1){
+				form.submit();
+			}
+		}else{
+			phoneNumberCheckFlag = 3;
+			item_ips[2].value = $("#user_phone").val();
+			alert('수정 할 회원 정보가 없습니다.')
+		}
 	}else{
 		alert('회원 수정 내용을 확인해 주세요.');
 	}

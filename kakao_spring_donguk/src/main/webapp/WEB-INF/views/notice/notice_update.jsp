@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -50,7 +49,6 @@
         </footer>
     </div>
     <script src="https://kit.fontawesome.com/b633b9875d.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/notice_dtl.js"></script>
     <script type="text/javascript" src="js/notice_update.js"></script>
 </body>
 </html>

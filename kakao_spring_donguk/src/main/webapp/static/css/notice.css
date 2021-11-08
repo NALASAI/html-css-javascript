@@ -29,7 +29,7 @@ main a {
 }
 
 .notice_header ul{
-    border-bottom: 5px solid steelblue;
+    border-bottom: 5px solid #fee500;
 }
 
 .notice_main ul {
@@ -60,41 +60,49 @@ main a {
     width: 100px;
 }
 
-.notice_footer{
+.notice_footer {
 	margin: 30px 0px 0px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 100%
 }
 
-.notice_insert_div{
+.notice_insert_div {
 	display: flex;
 	justify-content: flex-end;
 	width: 800px;
 }
 
-.notice_insert_button{
-	border:none;
+.notice_insert_button {
+	border: none;
 	background: #fee500;
-	width: 100px;
-	height: 50px;
+	width: 80px;
+	height: 30px;
 	font-size: 14px;
 	font-weight: 600;
 	cursor: pointer;
 }
 
 .notice_footer ul{
-	display: flex;
-	margin: 0px;
-	padding: 0px;
-	list-style: none;
-	border: none;
-	text-align: center;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border: none;
+    text-align: center;
 }
 
-.notice_footer ul li{
+.notice_footer ul li {
 	padding: 5px 10px;
-	margin: 0px 5px;
+	margin: 0px 5px
+	
 }
+
+
+
+
+
+
+

@@ -45,10 +45,10 @@ public class SignUpVo {
 		this.phoneFlag = phoneFlag;
 	}
 	
-    @Override
-    public String toString() {
-        return "SignUpVo [signUpEmail=" + signUpEmail + ", emailFlag=" + emailFlag + ", signUpPassword="
-                + signUpPassword + ", signUpName=" + signUpName + ", signUpPhone=" + signUpPhone + ", phoneFlag="
-                + phoneFlag + "]";
-    }
+	@Override
+	public String toString() {
+		return "SignUpVo [signUpEmail=" + signUpEmail + ", emailFlag=" + emailFlag + ", signUpPassword="
+				+ signUpPassword + ", signUpName=" + signUpName + ", signUpPhone=" + signUpPhone + ", phoneFlag="
+				+ phoneFlag + "]";
+	}
 }

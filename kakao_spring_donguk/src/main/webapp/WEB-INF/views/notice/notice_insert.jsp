@@ -11,6 +11,7 @@
     <link rel = "stylesheet" href="css/style.css">
     <link rel = "stylesheet" href="css/mainNav.css">
     <link rel = "stylesheet" href="css/notice_insert.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -21,17 +22,21 @@
             </div>
 
             <div class="notice_insert_main">
-                <form action="notice-insert" method="post">
+                <form id="insert_form">
                     <ul class="ni_title_ul">
                         <li class="ni_title_li">제목</li>
                         <li><input type="text" class="notice_title" name="notice_title"></li>
                     </ul>
                     <ul class="ni_info_ul">
                         <li>작성자</li>
-                        <input type="hidden" class="notice_writer" name="notice_writer" value="${login_user.name }">
-                        <li>${login_user.name }</li>
+                        <input type="hidden" class="notice_writer" name="notice_writer" value="${login_user.user_name }">
+                        <li>${login_user.user_name }</li>
                         <li>작성일</li>
-                        <li><fmt:formatDate value="${now }" pattern="yyyy-MM-dd"/></li>
+                        <li><fmt:formatDate value="${now }" pattern="yyyy-MM-dd"/> </li>
+                    </ul>
+                    <ul class="ni_file_ul">
+                        <li class="ni_file_li">첨부파일</li>
+                        <li><input type="file" multiple="multiple" name="notice_file"></li>
                     </ul>
                     <ul class="ni_content_ul">
                         <li>
@@ -41,7 +46,7 @@
 
                     <button type="button" class="notice_submit">작성완료</button>
                     <button type="reset">다시쓰기</button>
-                  </form>
+                </form>
             </div>
         </main>
         <footer>
