@@ -4,15 +4,17 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
 
-import org.apache.ibatis.javassist.compiler.ast.InstanceOfExpr;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.spring.kakao.model.beans.FileBean;
 import com.spring.kakao.model.beans.NoticeBean;
 import com.spring.kakao.model.dao.NoticeDao;
 import com.spring.kakao.model.dto.NoticeDto;
@@ -29,6 +31,7 @@ public class NoticeServiceImpl implements NoticeService {
 	
 	private NoticeBean noticeBean;
 	private List<NoticeDto> noticeListAll;
+	
 	
 	public void setNoticeBean(int pageNumber) {
 		noticeBean = new NoticeBean();
@@ -70,9 +73,9 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	
 	@Override
-	public NoticeDto fileUpload(NoticeInsertDto noticeInsertDto){
+	public NoticeDto fileUpload(NoticeInsertDto noticeInsertDto) {
 		MultipartFile[] multipartFiles = noticeInsertDto.getNotice_file();
-		String filePath = context.getRealPath("/static/upload");
+		String filePath = context.getRealPath("/static/fileupload");
 		
 		StringBuilder originName = new StringBuilder();
 		StringBuilder tempName = new StringBuilder();
@@ -89,7 +92,6 @@ public class NoticeServiceImpl implements NoticeService {
 			
 			File file = new File(filePath, tempFile);
 			if(!file.exists()) {
-				file.mkdir();
 				file.mkdirs();
 			}
 			
@@ -98,7 +100,6 @@ public class NoticeServiceImpl implements NoticeService {
 			} catch (IllegalStateException | IOException e) {
 				e.printStackTrace();
 			}
-			
 		}
 		originName.delete(originName.length()-1, originName.length());
 		tempName.delete(tempName.length()-1, tempName.length());
@@ -113,22 +114,109 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public int noticeInsert(NoticeInsertDto noticeInsertDto) {
 		NoticeDto noticeDto = fileUpload(noticeInsertDto);
-		noticeDto.setNotice_code(getnoticeMaxCode() + 1);
+		noticeDto.setNotice_code(getNoticeMaxCode() + 1);
 		noticeDto.setNotice_title(noticeInsertDto.getNotice_title());
 		noticeDto.setNotice_writer(noticeInsertDto.getNotice_writer());
 		noticeDto.setNotice_content(noticeInsertDto.getNotice_content());
-		int msgInsertFlag = noticeDao.noticeMstInsert(noticeDto);
-		int dtlInsertFlag = noticeDao.noticeDtlInsert(noticeDto);
-		if(msgInsertFlag == 1) {
+
+		int mstInsertFlag = noticeDao.noticeMstInsert(noticeDto);
+		int dtlInsertFlag = 0;
+		
+		if(mstInsertFlag == 1) {
 			dtlInsertFlag = noticeDao.noticeDtlInsert(noticeDto);
-			return noticeDto.getNotice_code();
+			if(dtlInsertFlag == 1) {
+				return noticeDto.getNotice_code(); 
+			}
 		}
 		
 		return dtlInsertFlag;
 	}
 	
 	@Override
-	public int getnoticeMaxCode() {
+	public int getNoticeMaxCode() {
 		return noticeDao.getNoticeMaxCode();
 	}
+	
+	@Override
+	public NoticeDto getNotice(String notice_code) {
+		plusNoticeCount(notice_code);
+		return noticeDao.getNotice(Integer.parseInt(notice_code));
+	}
+	
+	@Override
+	public List<FileBean> getFileList(NoticeDto noticeDto) {
+		
+		if(noticeDto.getOriginFileNames() == null || noticeDto.getTempFileNames() == null) {
+			return null;
+		}
+		
+		List<FileBean> fileList = new ArrayList<FileBean>();
+		
+		StringTokenizer ofn = new StringTokenizer(noticeDto.getOriginFileNames(), ",");
+		StringTokenizer tfn = new StringTokenizer(noticeDto.getTempFileNames(), ",");
+		
+		while(ofn.hasMoreTokens()) {
+			FileBean fileBean = new FileBean();
+			fileBean.setOriginFileName(ofn.nextToken());
+			fileBean.setTempFileName(tfn.nextToken());
+			fileList.add(fileBean);
+		}
+		
+		return fileList;
+	}
+	
+	@Override
+	public byte[] fileDownload(FileBean fileBean) {
+		String filePath = context.getRealPath("/static/fileupload");
+		File file = new File(filePath, fileBean.getTempFileName());
+		byte[] fileData = null;
+		
+		try {
+			fileData = FileCopyUtils.copyToByteArray(file);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return fileData;
+	}
+	
+	@Override
+	public int plusNoticeCount(String notice_code) {
+		return noticeDao.plusNoticeCount(Integer.parseInt(notice_code));
+	}
+	
+	@Override
+	public int noticeDelete(String notice_code) {
+		int i_notice_code = Integer.parseInt(notice_code);
+		
+		NoticeDto noticeDto = noticeDao.getNotice(i_notice_code);
+		String filePath = context.getRealPath("/static/fileupload");
+		List<FileBean> fileList = getFileList(noticeDto);
+		
+		int result = 0;
+		result += noticeDao.noticeDtlDelete(i_notice_code);
+		if(result == 1) {
+			result += noticeDao.noticeMstDelete(i_notice_code);
+			if(result == 2) {
+				for(FileBean filebean : fileList) {
+					File file = new File(filePath, filebean.getTempFileName());
+					if(file.exists()) {
+						file.delete();
+					}
+				}
+			}
+		}
+		return result;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
