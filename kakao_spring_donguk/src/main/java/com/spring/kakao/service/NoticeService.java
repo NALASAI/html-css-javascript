@@ -15,7 +15,7 @@ public interface NoticeService {
     public NoticeDto fileUpload(NoticeInsertDto noticeInsertDto);
     public int noticeInsert(NoticeInsertDto noticeInsertDto);
     public int getNoticeMaxCode();
-    public int plusNoticeCount(String notice_code);
+    public void plusNoticeCount(String notice_code);
     public int noticeDelete(String notice_code);
     public NoticeDto getNotice(String notice_code);
     public List<FileBean> getFileList(NoticeDto noticeDto);

@@ -76,12 +76,16 @@ public class NoticeServiceImpl implements NoticeService {
 	public NoticeDto fileUpload(NoticeInsertDto noticeInsertDto) {
 		MultipartFile[] multipartFiles = noticeInsertDto.getNotice_file();
 		String filePath = context.getRealPath("/static/fileupload");
+		NoticeDto noticeDto = new NoticeDto();
 		
 		StringBuilder originName = new StringBuilder();
 		StringBuilder tempName = new StringBuilder();
 		
 		for(MultipartFile multipartFile : multipartFiles) {
 			String originFile = multipartFile.getOriginalFilename();
+			if(originFile.equals("")) {
+				return noticeDto;
+			}
 			String originFileExtension = originFile.substring(originFile.lastIndexOf("."));
 			String tempFile = UUID.randomUUID().toString().replaceAll("-", "") + originFileExtension;
 			
@@ -104,7 +108,7 @@ public class NoticeServiceImpl implements NoticeService {
 		originName.delete(originName.length()-1, originName.length());
 		tempName.delete(tempName.length()-1, tempName.length());
 		
-		NoticeDto noticeDto = new NoticeDto();
+		
 		noticeDto.setOriginFileNames(originName.toString());
 		noticeDto.setTempFileNames(tempName.toString());
 		
@@ -118,14 +122,14 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeDto.setNotice_title(noticeInsertDto.getNotice_title());
 		noticeDto.setNotice_writer(noticeInsertDto.getNotice_writer());
 		noticeDto.setNotice_content(noticeInsertDto.getNotice_content());
-
+		
 		int mstInsertFlag = noticeDao.noticeMstInsert(noticeDto);
 		int dtlInsertFlag = 0;
 		
 		if(mstInsertFlag == 1) {
 			dtlInsertFlag = noticeDao.noticeDtlInsert(noticeDto);
 			if(dtlInsertFlag == 1) {
-				return noticeDto.getNotice_code(); 
+				return noticeDto.getNotice_code();
 			}
 		}
 		
@@ -173,17 +177,18 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		try {
 			fileData = FileCopyUtils.copyToByteArray(file);
-		} catch (Exception e) {
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return fileData;
 	}
 	
-	@Override
-	public int plusNoticeCount(String notice_code) {
-		return noticeDao.plusNoticeCount(Integer.parseInt(notice_code));
-	}
+    @Override
+    public void plusNoticeCount(String notice_code) {
+        noticeDao.plusNoticeCount(Integer.parseInt(notice_code));
+    }
 	
 	@Override
 	public int noticeDelete(String notice_code) {
@@ -197,9 +202,9 @@ public class NoticeServiceImpl implements NoticeService {
 		result += noticeDao.noticeDtlDelete(i_notice_code);
 		if(result == 1) {
 			result += noticeDao.noticeMstDelete(i_notice_code);
-			if(result == 2) {
-				for(FileBean filebean : fileList) {
-					File file = new File(filePath, filebean.getTempFileName());
+			if(result == 2 && fileList != null) {
+				for(FileBean fileBean : fileList) {
+					File file = new File(filePath, fileBean.getTempFileName());
 					if(file.exists()) {
 						file.delete();
 					}

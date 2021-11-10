@@ -41,10 +41,10 @@ public class NoticeDaoImpl implements NoticeDao {
 		return session.selectOne(NAME_SPACE + "getNotice", notice_code);
 	}
 	
-	@Override
-	public int plusNoticeCount(int notice_code) {
-		return session.update(NAME_SPACE + "plusNoticeCount", notice_code);
-	}
+    @Override
+    public int plusNoticeCount(int notice_code) {
+        return session.update(NAME_SPACE + "plusNoticeCount", notice_code);
+    }
 	
 	@Override
 	public int noticeMstDelete(int notice_code) {
