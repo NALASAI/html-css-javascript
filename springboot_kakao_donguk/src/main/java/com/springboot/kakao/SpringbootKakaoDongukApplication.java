@@ -1,4 +1,4 @@
-package com.springboot.study;
+package com.springboot.kakao;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
